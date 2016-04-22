@@ -115,7 +115,6 @@ public class MinimumEditDistance {
          */
         for (int i = 1; i < distanceCache.length; i++) {
             for (int j = 1; j < distanceCache[0].length; j++) {
-
                 if (first.charAt(j - 1) == second.charAt(i - 1)) {
                     distanceCache[i][j] = distanceCache[i - 1][j - 1];
                 } else {
@@ -128,11 +127,17 @@ public class MinimumEditDistance {
         return distanceCache[distanceCache.length - 1][distanceCache[0].length - 1];
     }
 
+    /**
+     * Returns smallest of the three input values.
+     */
     public static int minimum(int first, int second, int third) {
         int smaller = Math.min(first, second);
         return Math.min(smaller, third);
     }
 
+    /**
+     * Main method executes the test specs.
+     */
     public static void main(String[] args) {
         long recursiveTimeBegin = System.currentTimeMillis();
         assertEquals(MinimumEditDistance.getDistanceRecursive(null, "sunday"), -1);
