@@ -38,6 +38,10 @@ public class MinimumEditDistance {
      * F(BC, BC) => remove the first character of the first string, leave the second one alone.
      *
      * The runtime complexity of this is O(3^m) where m is the length of the bigger string of the two.
+     *
+     * @param first the first string who will be converted
+     * @param second the second string who the first string will try to convert to
+     * @return the minimum edit distance between first and second
      */
     public static int getDistanceRecursive(String first, String second) {
         if (first == null || second == null) {
@@ -72,7 +76,12 @@ public class MinimumEditDistance {
      * This uses an optimal dynamic programming algorithm to solve the min edit distance problem. As it compares
      * the two strings in a matrix, it caches the comparison value and uses the cache in future comparison without doing
      * any additional computation.
+     *
      * The runtime complexity of this algorithm is O(m*n) where m and n are the lengths of the strings.
+     *
+     * @param first the first string who will be converted
+     * @param second the second string who the first string will try to convert to
+     * @return the minimum edit distance between first and second
      */
     public static int getDistanceDynamic(String first, String second) {
         if (first == null || second == null) {
@@ -129,6 +138,11 @@ public class MinimumEditDistance {
 
     /**
      * Returns smallest of the three input values.
+     *
+     * @param first the first integer
+     * @param second the second integer
+     * @param third the third integer
+     * @return the minimum of three integers
      */
     public static int minimum(int first, int second, int third) {
         int smaller = Math.min(first, second);
@@ -137,6 +151,8 @@ public class MinimumEditDistance {
 
     /**
      * Main method executes the test specs.
+     *
+     * @param args command line args
      */
     public static void main(String[] args) {
         long recursiveTimeBegin = System.currentTimeMillis();
