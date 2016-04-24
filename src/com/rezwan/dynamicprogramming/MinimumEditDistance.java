@@ -1,7 +1,5 @@
 package com.rezwan.dynamicprogramming;
 
-import java.util.Arrays;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -39,7 +37,7 @@ public class MinimumEditDistance {
      *
      * The runtime complexity of this is O(3^m) where m is the length of the bigger string of the two.
      *
-     * @param first the first string who will be converted
+     * @param first  the first string who will be converted
      * @param second the second string who the first string will try to convert to
      * @return the minimum edit distance between first and second
      */
@@ -79,7 +77,7 @@ public class MinimumEditDistance {
      *
      * The runtime complexity of this algorithm is O(m*n) where m and n are the lengths of the strings.
      *
-     * @param first the first string who will be converted
+     * @param first  the first string who will be converted
      * @param second the second string who the first string will try to convert to
      * @return the minimum edit distance between first and second
      */
@@ -139,9 +137,9 @@ public class MinimumEditDistance {
     /**
      * Returns smallest of the three input values.
      *
-     * @param first the first integer
+     * @param first  the first integer
      * @param second the second integer
-     * @param third the third integer
+     * @param third  the third integer
      * @return the minimum of three integers
      */
     public static int minimum(int first, int second, int third) {
