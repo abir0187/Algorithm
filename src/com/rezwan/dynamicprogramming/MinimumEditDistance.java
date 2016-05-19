@@ -1,5 +1,7 @@
 package com.rezwan.dynamicprogramming;
 
+import com.rezwan.util.NumberUtil;
+
 /**
  * This implements the 'Minimum Edit Distance' algorithm between two string values. For example, given two strings, 'ABC',
  * and 'AXXD', you will have to find the minimum distance of converting 'ABC' to 'AXXD'. For this problem, you will
@@ -63,7 +65,7 @@ public class MinimumEditDistance {
             int edit = getDistanceRecursive(first.substring(1, first.length()), second.substring(1, second.length()));
             //For, (AB, B) the following becomes F(B, B), first letter of first string removed.
             int delete = getDistanceRecursive(first.substring(1, first.length()), second);
-            return 1 + minimum(insert, edit, delete);
+            return 1 + NumberUtil.minimum(insert, edit, delete);
         }
     }
 
@@ -122,7 +124,7 @@ public class MinimumEditDistance {
                 if (first.charAt(j - 1) == second.charAt(i - 1)) {
                     distanceCache[i][j] = distanceCache[i - 1][j - 1];
                 } else {
-                    distanceCache[i][j] = 1 + minimum(distanceCache[i - 1][j - 1], distanceCache[i - 1][j], distanceCache[i][j - 1]);
+                    distanceCache[i][j] = 1 + NumberUtil.minimum(distanceCache[i - 1][j - 1], distanceCache[i - 1][j], distanceCache[i][j - 1]);
                 }
             }
         }
@@ -131,16 +133,5 @@ public class MinimumEditDistance {
         return distanceCache[distanceCache.length - 1][distanceCache[0].length - 1];
     }
 
-    /**
-     * Returns smallest of the three input values.
-     *
-     * @param first  the first integer
-     * @param second the second integer
-     * @param third  the third integer
-     * @return the minimum of three integers
-     */
-    public static int minimum(int first, int second, int third) {
-        int smaller = Math.min(first, second);
-        return Math.min(smaller, third);
-    }
+
 }
