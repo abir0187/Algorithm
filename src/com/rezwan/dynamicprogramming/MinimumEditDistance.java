@@ -1,8 +1,5 @@
 package com.rezwan.dynamicprogramming;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-
 /**
  * This implements the 'Minimum Edit Distance' algorithm between two string values. For example, given two strings, 'ABC',
  * and 'AXXD', you will have to find the minimum distance of converting 'ABC' to 'AXXD'. For this problem, you will
@@ -41,7 +38,7 @@ public class MinimumEditDistance {
      * @param second the second string who the first string will try to convert to
      * @return the minimum edit distance between first and second
      */
-    public static int getDistanceRecursive(String first, String second) {
+    public int getDistanceRecursive(String first, String second) {
         if (first == null || second == null) {
             return -1;
         }
@@ -81,7 +78,7 @@ public class MinimumEditDistance {
      * @param second the second string who the first string will try to convert to
      * @return the minimum edit distance between first and second
      */
-    public static int getDistanceDynamic(String first, String second) {
+    public int getDistanceDynamic(String first, String second) {
         if (first == null || second == null) {
             return -1;
         }
@@ -146,47 +143,4 @@ public class MinimumEditDistance {
         int smaller = Math.min(first, second);
         return Math.min(smaller, third);
     }
-
-    /**
-     * Main method executes the test specs.
-     *
-     * @param args command line args
-     */
-    public static void main(String[] args) {
-        long recursiveTimeBegin = System.currentTimeMillis();
-        assertEquals(MinimumEditDistance.getDistanceRecursive(null, "sunday"), -1);
-        assertEquals(MinimumEditDistance.getDistanceRecursive("sunday", null), -1);
-        assertEquals(MinimumEditDistance.getDistanceRecursive("", "cut"), 3);
-        assertEquals(MinimumEditDistance.getDistanceRecursive("cut", ""), 3);
-        assertEquals(MinimumEditDistance.getDistanceRecursive("cut", "cut"), 0);
-        assertEquals(MinimumEditDistance.getDistanceRecursive("a", "ba"), 1);
-        assertEquals(MinimumEditDistance.getDistanceRecursive("ba", "a"), 1);
-        assertEquals(MinimumEditDistance.getDistanceRecursive("bat", "but"), 1);
-        assertEquals(MinimumEditDistance.getDistanceRecursive("saturday", "sunday"), 3);
-        assertEquals(MinimumEditDistance.getDistanceRecursive("sunday", "saturday"), 3);
-        assertEquals(MinimumEditDistance.getDistanceRecursive("xoooog", "xg"), 4);
-        assertEquals(MinimumEditDistance.getDistanceRecursive("xg", "xoooog"), 4);
-        long recursiveTimeEnd = System.currentTimeMillis();
-
-        long dynamicTimeBegin = System.currentTimeMillis();
-        assertEquals(MinimumEditDistance.getDistanceDynamic(null, "sunday"), -1);
-        assertEquals(MinimumEditDistance.getDistanceDynamic("sunday", null), -1);
-        assertEquals(MinimumEditDistance.getDistanceDynamic("", "cut"), 3);
-        assertEquals(MinimumEditDistance.getDistanceDynamic("cut", ""), 3);
-        assertEquals(MinimumEditDistance.getDistanceDynamic("cut", "cut"), 0);
-        assertEquals(MinimumEditDistance.getDistanceDynamic("a", "ba"), 1);
-        assertEquals(MinimumEditDistance.getDistanceDynamic("ba", "a"), 1);
-        assertEquals(MinimumEditDistance.getDistanceDynamic("bat", "but"), 1);
-        assertEquals(MinimumEditDistance.getDistanceDynamic("saturday", "sunday"), 3);
-        assertEquals(MinimumEditDistance.getDistanceDynamic("sunday", "saturday"), 3);
-        assertEquals(MinimumEditDistance.getDistanceDynamic("xoooog", "xg"), 4);
-        assertEquals(MinimumEditDistance.getDistanceDynamic("xg", "xoooog"), 4);
-        long dynamicTimeEnd = System.currentTimeMillis();
-
-        long dynamicTimeDelta = dynamicTimeEnd - dynamicTimeBegin;
-        long recursiveTimeDelta = recursiveTimeEnd - recursiveTimeBegin;
-
-        assertTrue(dynamicTimeDelta < recursiveTimeDelta);
-    }
-
 }
