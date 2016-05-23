@@ -26,6 +26,8 @@ public class ContiguousSumInArray {
      * 10 -> 3 (1+2+3+4) // at this point sum - target == 1 (i.e. 10-9), which is in the map and therefore the method
      * will return a Pair(1,3).
      *
+     * The runtime complexity of this code is O(n) where n is the number of items in the array.
+     *
      * @param array  given array
      * @param target given target
      * @return a pair of begin and end index
