@@ -6,6 +6,9 @@ import org.junit.Test;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
+/**
+ * Provides test coverage for ContiguousSumInArray class.
+ */
 public class ContiguousSumInArrayTest {
     ContiguousSumInArray contiguousSumInArray = new ContiguousSumInArray();
 
